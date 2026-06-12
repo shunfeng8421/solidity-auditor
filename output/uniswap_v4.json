@@ -1,0 +1,2222 @@
+{
+  "auditor": "solidity-auditor v0.1.0",
+  "timestamp": "2026-06-12T14:18:51.406045+08:00",
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909.sol",
+      "timestamp": "2026-06-12T14:18:51.278997+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3497
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:18:51.280991+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 958
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Extsload.sol",
+      "timestamp": "2026-06-12T14:18:51.281988+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2609
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Exttload.sol",
+      "timestamp": "2026-06-12T14:18:51.282985+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1603
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\NoDelegateCall.sol",
+      "timestamp": "2026-06-12T14:18:51.283982+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1248
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\PoolManager.sol",
+      "timestamp": "2026-06-12T14:18:51.290958+08:00",
+      "score": {
+        "total": 81,
+        "max": 100,
+        "pct": 81,
+        "grade": "B"
+      },
+      "findings": {
+        "total": 6,
+        "critical": 1,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 295
+          },
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: settle, burn, updateDynamicLPFee, mint, settleFor",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 17613
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ProtocolFees.sol",
+      "timestamp": "2026-06-12T14:18:51.292952+08:00",
+      "score": {
+        "total": 91,
+        "max": 100,
+        "pct": 91,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 56
+          },
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3036
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExtsload.sol",
+      "timestamp": "2026-06-12T14:18:51.292952+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1023
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExttload.sol",
+      "timestamp": "2026-06-12T14:18:51.293947+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 699
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IHooks.sol",
+      "timestamp": "2026-06-12T14:18:51.297816+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 8229
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IPoolManager.sol",
+      "timestamp": "2026-06-12T14:18:51.302803+08:00",
+      "score": {
+        "total": 96,
+        "max": 100,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 12835
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IProtocolFees.sol",
+      "timestamp": "2026-06-12T14:18:51.304272+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2489
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\callback\\IUnlockCallback.sol",
+      "timestamp": "2026-06-12T14:18:51.305274+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 488
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC20Minimal.sol",
+      "timestamp": "2026-06-12T14:18:51.306270+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3041
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:18:51.308117+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3162
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\BitMath.sol",
+      "timestamp": "2026-06-12T14:18:51.309672+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2609
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyDelta.sol",
+      "timestamp": "2026-06-12T14:18:51.310189+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1606
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyReserves.sol",
+      "timestamp": "2026-06-12T14:18:51.311213+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1289
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CustomRevert.sol",
+      "timestamp": "2026-06-12T14:18:51.313338+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5174
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint128.sol",
+      "timestamp": "2026-06-12T14:18:51.313856+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 297
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint96.sol",
+      "timestamp": "2026-06-12T14:18:51.314368+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 366
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FullMath.sol",
+      "timestamp": "2026-06-12T14:18:51.315907+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5459
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Hooks.sol",
+      "timestamp": "2026-06-12T14:18:51.321499+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 16511
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LiquidityMath.sol",
+      "timestamp": "2026-06-12T14:18:51.322496+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 742
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Lock.sol",
+      "timestamp": "2026-06-12T14:18:51.322496+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 930
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LPFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:18:51.324489+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3596
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\NonzeroDeltaCount.sol",
+      "timestamp": "2026-06-12T14:18:51.324489+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1460
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ParseBytes.sol",
+      "timestamp": "2026-06-12T14:18:51.325486+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1200
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Pool.sol",
+      "timestamp": "2026-06-12T14:18:51.338162+08:00",
+      "score": {
+        "total": 91,
+        "max": 100,
+        "pct": 91,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateTick, setLPFee, setProtocolFee",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 30033
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Position.sol",
+      "timestamp": "2026-06-12T14:18:51.339710+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 4813
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ProtocolFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:18:51.340804+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2113
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SafeCast.sol",
+      "timestamp": "2026-06-12T14:18:51.341833+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2269
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SqrtPriceMath.sol",
+      "timestamp": "2026-06-12T14:18:51.348061+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 3 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 14076
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\StateLibrary.sol",
+      "timestamp": "2026-06-12T14:18:51.355897+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 16027
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SwapMath.sol",
+      "timestamp": "2026-06-12T14:18:51.357893+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6968
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickBitmap.sol",
+      "timestamp": "2026-06-12T14:18:51.359887+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6266
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickMath.sol",
+      "timestamp": "2026-06-12T14:18:51.362877+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 12382
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TransientStateLibrary.sol",
+      "timestamp": "2026-06-12T14:18:51.363874+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2361
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\UnsafeMath.sol",
+      "timestamp": "2026-06-12T14:18:51.363874+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1161
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ActionsRouter.sol",
+      "timestamp": "2026-06-12T14:18:51.365867+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6608
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\BaseTestHooks.sol",
+      "timestamp": "2026-06-12T14:18:51.366864+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3408
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CurrencyTest.sol",
+      "timestamp": "2026-06-12T14:18:51.366864+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 8
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 902
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CustomCurveHook.sol",
+      "timestamp": "2026-06-12T14:18:51.367860+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2767
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DeltaReturningHook.sol",
+      "timestamp": "2026-06-12T14:18:51.368857+08:00",
+      "score": {
+        "total": 95,
+        "max": 100,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setDeltaSpecified, setDeltaUnspecifiedBeforeSwap, setDeltaUnspecifiedAfterSwap",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3575
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicFeesTestHook.sol",
+      "timestamp": "2026-06-12T14:18:51.369853+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager, setFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1345
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicReturnFeeTestHook.sol",
+      "timestamp": "2026-06-12T14:18:51.370850+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager, setFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1313
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyRevertContract.sol",
+      "timestamp": "2026-06-12T14:18:51.370850+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 246
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyTestHooks.sol",
+      "timestamp": "2026-06-12T14:18:51.371847+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3745
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\FeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:18:51.372844+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3569
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\Fuzzers.sol",
+      "timestamp": "2026-06-12T14:18:51.374842+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 8272
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\HooksTest.sol",
+      "timestamp": "2026-06-12T14:18:51.375834+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2874
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LiquidityMathTest.sol",
+      "timestamp": "2026-06-12T14:18:51.375834+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 289
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LPFeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:18:51.376830+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2468
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockContract.sol",
+      "timestamp": "2026-06-12T14:18:51.377827+08:00",
+      "score": {
+        "total": 95,
+        "max": 100,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setImplementation",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2037
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:18:51.377827+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint, burn",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 676
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockHooks.sol",
+      "timestamp": "2026-06-12T14:18:51.379820+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setReturnValue, setlpFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5217
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NativeERC20.sol",
+      "timestamp": "2026-06-12T14:18:51.380818+08:00",
+      "score": {
+        "total": 96,
+        "max": 100,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1661
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NoDelegateCallTest.sol",
+      "timestamp": "2026-06-12T14:18:51.380818+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 977
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolClaimsTest.sol",
+      "timestamp": "2026-06-12T14:18:51.381814+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: withdraw, deposit",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1865
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolDonateTest.sol",
+      "timestamp": "2026-06-12T14:18:51.382810+08:00",
+      "score": {
+        "total": 97,
+        "max": 100,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2851
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolEmptyUnlockTest.sol",
+      "timestamp": "2026-06-12T14:18:51.382810+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 686
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTest.sol",
+      "timestamp": "2026-06-12T14:18:51.383807+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3796
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTestNoChecks.sol",
+      "timestamp": "2026-06-12T14:18:51.384803+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2786
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolNestedActionsTest.sol",
+      "timestamp": "2026-06-12T14:18:51.387794+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setKey",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 11016
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolSwapTest.sol",
+      "timestamp": "2026-06-12T14:18:51.389788+08:00",
+      "score": {
+        "total": 96,
+        "max": 100,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5002
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTakeTest.sol",
+      "timestamp": "2026-06-12T14:18:51.390439+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2274
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTestBase.sol",
+      "timestamp": "2026-06-12T14:18:51.390952+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1024
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProtocolFeesImplementation.sol",
+      "timestamp": "2026-06-12T14:18:51.391463+08:00",
+      "score": {
+        "total": 96,
+        "max": 100,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 11,
+            "rule_name": "oracle-no-timelock",
+            "severity": "medium",
+            "detail": "价格更新函数无时间锁保护",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setIsUnlocked, setPrice, updateProtocolFees",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1309
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProxyPoolManager.sol",
+      "timestamp": "2026-06-12T14:18:51.394074+08:00",
+      "score": {
+        "total": 80,
+        "max": 100,
+        "pct": 80,
+        "grade": "B"
+      },
+      "findings": {
+        "total": 6,
+        "critical": 2,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 13,
+            "rule_name": "upgrade-initializer-unprotected",
+            "severity": "critical",
+            "detail": "initialize() 无防重复调用保护",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['delegateManager']",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: settle, burn, updateDynamicLPFee, mint, settleFor",
+            "line": null
+          },
+          {
+            "rule_id": 17,
+            "rule_name": "best-practice-delegatecall-untrusted",
+            "severity": "critical",
+            "detail": "delegatecall 目标可能用户可控 — 代码执行风险",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 9112
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SkipCallsTestHook.sol",
+      "timestamp": "2026-06-12T14:18:51.396186+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 7510
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SqrtPriceMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:18:51.397806+08:00",
+      "score": {
+        "total": 94,
+        "max": 100,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 7440
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SwapRouterNoChecks.sol",
+      "timestamp": "2026-06-12T14:18:51.398434+08:00",
+      "score": {
+        "total": 93,
+        "max": 100,
+        "pct": 93,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1815
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestERC20.sol",
+      "timestamp": "2026-06-12T14:18:51.398952+08:00",
+      "score": {
+        "total": 92,
+        "max": 100,
+        "pct": 92,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2172
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestInvalidERC20.sol",
+      "timestamp": "2026-06-12T14:18:51.400003+08:00",
+      "score": {
+        "total": 92,
+        "max": 100,
+        "pct": 92,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2323
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:18:51.400003+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 955
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathTest.sol",
+      "timestamp": "2026-06-12T14:18:51.400528+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1297
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickOverflowSafetyEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:18:51.401555+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setPosition",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3063
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BalanceDelta.sol",
+      "timestamp": "2026-06-12T14:18:51.402056+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2339
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BeforeSwapDelta.sol",
+      "timestamp": "2026-06-12T14:18:51.402056+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1466
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Currency.sol",
+      "timestamp": "2026-06-12T14:18:51.404051+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5458
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolId.sol",
+      "timestamp": "2026-06-12T14:18:51.404051+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 539
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolKey.sol",
+      "timestamp": "2026-06-12T14:18:51.404051+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 805
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolOperation.sol",
+      "timestamp": "2026-06-12T14:18:51.405048+08:00",
+      "score": {
+        "total": 100,
+        "max": 100,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 907
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Slot0.sol",
+      "timestamp": "2026-06-12T14:18:51.406045+08:00",
+      "score": {
+        "total": 98,
+        "max": 100,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setSqrtPriceX96, setTick, setLpFee, setProtocolFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3404
+      }
+    }
+  ]
+}

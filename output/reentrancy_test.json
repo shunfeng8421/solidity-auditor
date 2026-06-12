@@ -1,0 +1,85 @@
+{
+  "auditor": "solidity-auditor v3.0 (50 rules + CEI + 25 sigs)",
+  "timestamp": "2026-06-12T14:37:35.254786+08:00",
+  "summary": {
+    "files": 1,
+    "total_findings": 8,
+    "critical": 1,
+    "high": 3
+  },
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/reentrancy_test.sol",
+      "timestamp": "2026-06-12T14:37:35.254786+08:00",
+      "findings": {
+        "total": 8,
+        "critical": 1,
+        "high": 3,
+        "medium": 3,
+        "rule_findings": 7,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 3,
+            "name": "reentrancy-unchecked-send",
+            "severity": "high",
+            "detail": "未检查 .send/.call 返回值 (0 send, 1 call)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_bank']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: deposit, withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 37,
+            "name": "staking-early-exit",
+            "severity": "medium",
+            "detail": "质押退出无锁定期/惩罚"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Reentrancy: Cross-function",
+            "severity": "critical",
+            "detail": "Price/supply dependent on external call result",
+            "sig_id": "SIG-003"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    }
+  ]
+}

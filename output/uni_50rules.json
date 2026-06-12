@@ -1,0 +1,2583 @@
+{
+  "auditor": "solidity-auditor v0.1.0",
+  "timestamp": "2026-06-12T14:28:49.902009+08:00",
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909.sol",
+      "timestamp": "2026-06-12T14:28:49.741343+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3497
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:28:49.741343+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 958
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Extsload.sol",
+      "timestamp": "2026-06-12T14:28:49.743336+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2609
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Exttload.sol",
+      "timestamp": "2026-06-12T14:28:49.743336+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1603
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\NoDelegateCall.sol",
+      "timestamp": "2026-06-12T14:28:49.744333+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 47,
+            "rule_name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1248
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\PoolManager.sol",
+      "timestamp": "2026-06-12T14:28:49.752306+08:00",
+      "score": {
+        "total": 171,
+        "max": 200,
+        "pct": 86,
+        "grade": "B"
+      },
+      "findings": {
+        "total": 9,
+        "critical": 1,
+        "high": 4,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 295
+          },
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateDynamicLPFee, settle, burn, mint, settleFor",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          },
+          {
+            "rule_id": 48,
+            "rule_name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑",
+            "line": null
+          },
+          {
+            "rule_id": 49,
+            "rule_name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 17613
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ProtocolFees.sol",
+      "timestamp": "2026-06-12T14:28:49.754300+08:00",
+      "score": {
+        "total": 189,
+        "max": 200,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 56
+          },
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']",
+            "line": null
+          },
+          {
+            "rule_id": 49,
+            "rule_name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3036
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExtsload.sol",
+      "timestamp": "2026-06-12T14:28:49.755296+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1023
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExttload.sol",
+      "timestamp": "2026-06-12T14:28:49.755296+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 699
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IHooks.sol",
+      "timestamp": "2026-06-12T14:28:49.758286+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 8229
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IPoolManager.sol",
+      "timestamp": "2026-06-12T14:28:49.764266+08:00",
+      "score": {
+        "total": 184,
+        "max": 200,
+        "pct": 92,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 3,
+        "details": [
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 27,
+            "rule_name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          },
+          {
+            "rule_id": 48,
+            "rule_name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 12835
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IProtocolFees.sol",
+      "timestamp": "2026-06-12T14:28:49.766260+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2489
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\callback\\IUnlockCallback.sol",
+      "timestamp": "2026-06-12T14:28:49.766260+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 488
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC20Minimal.sol",
+      "timestamp": "2026-06-12T14:28:49.768253+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3041
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:28:49.769250+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3162
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\BitMath.sol",
+      "timestamp": "2026-06-12T14:28:49.771244+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2609
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyDelta.sol",
+      "timestamp": "2026-06-12T14:28:49.772240+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1606
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyReserves.sol",
+      "timestamp": "2026-06-12T14:28:49.773236+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1289
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CustomRevert.sol",
+      "timestamp": "2026-06-12T14:28:49.775230+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5174
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint128.sol",
+      "timestamp": "2026-06-12T14:28:49.775230+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 297
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint96.sol",
+      "timestamp": "2026-06-12T14:28:49.776226+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 366
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FullMath.sol",
+      "timestamp": "2026-06-12T14:28:49.778145+08:00",
+      "score": {
+        "total": 197,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5459
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Hooks.sol",
+      "timestamp": "2026-06-12T14:28:49.785472+08:00",
+      "score": {
+        "total": 192,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 42,
+            "rule_name": "dos-external-call-loop",
+            "severity": "high",
+            "detail": "循环中外部调用 — Gas炸弹DoS",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 16511
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LiquidityMath.sol",
+      "timestamp": "2026-06-12T14:28:49.785981+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 742
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Lock.sol",
+      "timestamp": "2026-06-12T14:28:49.786490+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 930
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LPFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:28:49.788066+08:00",
+      "score": {
+        "total": 192,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 44,
+            "rule_name": "signature-deadline-missing",
+            "severity": "high",
+            "detail": "签名缺deadline — 永久有效",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3596
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\NonzeroDeltaCount.sol",
+      "timestamp": "2026-06-12T14:28:49.789065+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1460
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ParseBytes.sol",
+      "timestamp": "2026-06-12T14:28:49.790062+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1200
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Pool.sol",
+      "timestamp": "2026-06-12T14:28:49.805012+08:00",
+      "score": {
+        "total": 183,
+        "max": 200,
+        "pct": 92,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 3,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateTick, setLPFee, setProtocolFee",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          },
+          {
+            "rule_id": 48,
+            "rule_name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 30033
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Position.sol",
+      "timestamp": "2026-06-12T14:28:49.807006+08:00",
+      "score": {
+        "total": 197,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 4813
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ProtocolFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:28:49.808007+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2113
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SafeCast.sol",
+      "timestamp": "2026-06-12T14:28:49.808999+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2269
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SqrtPriceMath.sol",
+      "timestamp": "2026-06-12T14:28:49.815980+08:00",
+      "score": {
+        "total": 190,
+        "max": 200,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 3 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 14076
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\StateLibrary.sol",
+      "timestamp": "2026-06-12T14:28:49.822578+08:00",
+      "score": {
+        "total": 193,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 16027
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SwapMath.sol",
+      "timestamp": "2026-06-12T14:28:49.825568+08:00",
+      "score": {
+        "total": 193,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6968
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickBitmap.sol",
+      "timestamp": "2026-06-12T14:28:49.828558+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6266
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickMath.sol",
+      "timestamp": "2026-06-12T14:28:49.834340+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 12382
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TransientStateLibrary.sol",
+      "timestamp": "2026-06-12T14:28:49.835917+08:00",
+      "score": {
+        "total": 197,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2361
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\UnsafeMath.sol",
+      "timestamp": "2026-06-12T14:28:49.835917+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1161
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ActionsRouter.sol",
+      "timestamp": "2026-06-12T14:28:49.838909+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          },
+          {
+            "rule_id": 49,
+            "rule_name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 6608
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\BaseTestHooks.sol",
+      "timestamp": "2026-06-12T14:28:49.840902+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3408
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CurrencyTest.sol",
+      "timestamp": "2026-06-12T14:28:49.840902+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 2,
+            "rule_name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)",
+            "line": 8
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 902
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CustomCurveHook.sol",
+      "timestamp": "2026-06-12T14:28:49.842895+08:00",
+      "score": {
+        "total": 193,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2767
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DeltaReturningHook.sol",
+      "timestamp": "2026-06-12T14:28:49.844889+08:00",
+      "score": {
+        "total": 195,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setDeltaUnspecifiedBeforeSwap, setDeltaUnspecifiedAfterSwap, setDeltaSpecified",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3575
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicFeesTestHook.sol",
+      "timestamp": "2026-06-12T14:28:49.845886+08:00",
+      "score": {
+        "total": 190,
+        "max": 200,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager, setFee",
+            "line": null
+          },
+          {
+            "rule_id": 28,
+            "rule_name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 setFee() 缺时间锁",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1345
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicReturnFeeTestHook.sol",
+      "timestamp": "2026-06-12T14:28:49.845886+08:00",
+      "score": {
+        "total": 190,
+        "max": 200,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager, setFee",
+            "line": null
+          },
+          {
+            "rule_id": 28,
+            "rule_name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 setFee() 缺时间锁",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1313
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyRevertContract.sol",
+      "timestamp": "2026-06-12T14:28:49.846882+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 1,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 47,
+            "rule_name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 246
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyTestHooks.sol",
+      "timestamp": "2026-06-12T14:28:49.848474+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3745
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\FeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:28:49.850469+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3569
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\Fuzzers.sol",
+      "timestamp": "2026-06-12T14:28:49.854456+08:00",
+      "score": {
+        "total": 193,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 8272
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\HooksTest.sol",
+      "timestamp": "2026-06-12T14:28:49.856449+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2874
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LiquidityMathTest.sol",
+      "timestamp": "2026-06-12T14:28:49.856449+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 289
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LPFeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:28:49.857446+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2468
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockContract.sol",
+      "timestamp": "2026-06-12T14:28:49.858443+08:00",
+      "score": {
+        "total": 191,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setImplementation",
+            "line": null
+          },
+          {
+            "rule_id": 47,
+            "rule_name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2037
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:28:49.859445+08:00",
+      "score": {
+        "total": 190,
+        "max": 200,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: burn, mint",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 676
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockHooks.sol",
+      "timestamp": "2026-06-12T14:28:49.861433+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setReturnValue, setlpFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5217
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NativeERC20.sol",
+      "timestamp": "2026-06-12T14:28:49.862429+08:00",
+      "score": {
+        "total": 192,
+        "max": 200,
+        "pct": 96,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1661
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NoDelegateCallTest.sol",
+      "timestamp": "2026-06-12T14:28:49.863427+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 977
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolClaimsTest.sol",
+      "timestamp": "2026-06-12T14:28:49.864429+08:00",
+      "score": {
+        "total": 190,
+        "max": 200,
+        "pct": 95,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: withdraw, deposit",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1865
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolDonateTest.sol",
+      "timestamp": "2026-06-12T14:28:49.865424+08:00",
+      "score": {
+        "total": 197,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2851
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolEmptyUnlockTest.sol",
+      "timestamp": "2026-06-12T14:28:49.866421+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 686
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTest.sol",
+      "timestamp": "2026-06-12T14:28:49.867417+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 49,
+            "rule_name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3796
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTestNoChecks.sol",
+      "timestamp": "2026-06-12T14:28:49.869406+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 49,
+            "rule_name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2786
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolNestedActionsTest.sol",
+      "timestamp": "2026-06-12T14:28:49.873475+08:00",
+      "score": {
+        "total": 186,
+        "max": 200,
+        "pct": 93,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setKey",
+            "line": null
+          },
+          {
+            "rule_id": 28,
+            "rule_name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 execute() 缺时间锁",
+            "line": null
+          },
+          {
+            "rule_id": 42,
+            "rule_name": "dos-external-call-loop",
+            "severity": "high",
+            "detail": "循环中外部调用 — Gas炸弹DoS",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 11016
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolSwapTest.sol",
+      "timestamp": "2026-06-12T14:28:49.875468+08:00",
+      "score": {
+        "total": 188,
+        "max": 200,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 2,
+        "details": [
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 27,
+            "rule_name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5002
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTakeTest.sol",
+      "timestamp": "2026-06-12T14:28:49.876465+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2274
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTestBase.sol",
+      "timestamp": "2026-06-12T14:28:49.877462+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1024
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProtocolFeesImplementation.sol",
+      "timestamp": "2026-06-12T14:28:49.878458+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 11,
+            "rule_name": "oracle-no-timelock",
+            "severity": "medium",
+            "detail": "价格更新函数无时间锁保护",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setIsUnlocked, updateProtocolFees, setPrice",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1309
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProxyPoolManager.sol",
+      "timestamp": "2026-06-12T14:28:49.882445+08:00",
+      "score": {
+        "total": 164,
+        "max": 200,
+        "pct": 82,
+        "grade": "B"
+      },
+      "findings": {
+        "total": 10,
+        "critical": 4,
+        "high": 4,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn",
+            "line": null
+          },
+          {
+            "rule_id": 13,
+            "rule_name": "upgrade-initializer-unprotected",
+            "severity": "critical",
+            "detail": "initialize() 无防重复调用保护",
+            "line": null
+          },
+          {
+            "rule_id": 15,
+            "rule_name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['delegateManager']",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateDynamicLPFee, settle, burn, mint, settleFor",
+            "line": null
+          },
+          {
+            "rule_id": 17,
+            "rule_name": "best-practice-delegatecall-untrusted",
+            "severity": "critical",
+            "detail": "delegatecall 目标可能用户可控 — 代码执行风险",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 27,
+            "rule_name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          },
+          {
+            "rule_id": 47,
+            "rule_name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突",
+            "line": null
+          },
+          {
+            "rule_id": 48,
+            "rule_name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 9112
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SkipCallsTestHook.sol",
+      "timestamp": "2026-06-12T14:28:49.885439+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 7510
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SqrtPriceMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:28:49.888425+08:00",
+      "score": {
+        "total": 194,
+        "max": 200,
+        "pct": 97,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 7,
+            "rule_name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险",
+            "line": null
+          },
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 7440
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SwapRouterNoChecks.sol",
+      "timestamp": "2026-06-12T14:28:49.889421+08:00",
+      "score": {
+        "total": 185,
+        "max": 200,
+        "pct": 92,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 3,
+        "details": [
+          {
+            "rule_id": 9,
+            "rule_name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出",
+            "line": null
+          },
+          {
+            "rule_id": 21,
+            "rule_name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险",
+            "line": null
+          },
+          {
+            "rule_id": 27,
+            "rule_name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1815
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestERC20.sol",
+      "timestamp": "2026-06-12T14:28:49.890418+08:00",
+      "score": {
+        "total": 188,
+        "max": 200,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2172
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestInvalidERC20.sol",
+      "timestamp": "2026-06-12T14:28:49.891415+08:00",
+      "score": {
+        "total": 188,
+        "max": 200,
+        "pct": 94,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "details": [
+          {
+            "rule_id": 4,
+            "rule_name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint",
+            "line": null
+          },
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint",
+            "line": null
+          },
+          {
+            "rule_id": 20,
+            "rule_name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险",
+            "line": null
+          },
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2323
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:28:49.892534+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 955
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathTest.sol",
+      "timestamp": "2026-06-12T14:28:49.893037+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1297
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickOverflowSafetyEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:28:49.895032+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setPosition",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3063
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BalanceDelta.sol",
+      "timestamp": "2026-06-12T14:28:49.896029+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 2339
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BeforeSwapDelta.sol",
+      "timestamp": "2026-06-12T14:28:49.897026+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 1466
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Currency.sol",
+      "timestamp": "2026-06-12T14:28:49.899019+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 5458
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolId.sol",
+      "timestamp": "2026-06-12T14:28:49.899019+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 539
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolKey.sol",
+      "timestamp": "2026-06-12T14:28:49.900016+08:00",
+      "score": {
+        "total": 200,
+        "max": 200,
+        "pct": 100,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 805
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolOperation.sol",
+      "timestamp": "2026-06-12T14:28:49.900016+08:00",
+      "score": {
+        "total": 196,
+        "max": 200,
+        "pct": 98,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "details": [
+          {
+            "rule_id": 46,
+            "rule_name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 907
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Slot0.sol",
+      "timestamp": "2026-06-12T14:28:49.902009+08:00",
+      "score": {
+        "total": 198,
+        "max": 200,
+        "pct": 99,
+        "grade": "A"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "details": [
+          {
+            "rule_id": 16,
+            "rule_name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setSqrtPriceX96, setLpFee, setTick, setProtocolFee",
+            "line": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0,
+        "file_size": 3404
+      }
+    }
+  ]
+}

@@ -1,0 +1,2881 @@
+{
+  "auditor": "solidity-auditor v3.0 (50 rules + CEI + 25 sigs)",
+  "timestamp": "2026-06-12T14:37:07.351943+08:00",
+  "summary": {
+    "files": 84,
+    "total_findings": 210,
+    "critical": 21,
+    "high": 148
+  },
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909.sol",
+      "timestamp": "2026-06-12T14:36:57.730347+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:36:57.737324+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Extsload.sol",
+      "timestamp": "2026-06-12T14:36:57.781757+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\Exttload.sol",
+      "timestamp": "2026-06-12T14:36:57.796711+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\NoDelegateCall.sol",
+      "timestamp": "2026-06-12T14:36:57.806674+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 1,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 47,
+            "name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\PoolManager.sol",
+      "timestamp": "2026-06-12T14:36:57.978876+08:00",
+      "findings": {
+        "total": 15,
+        "critical": 3,
+        "high": 8,
+        "medium": 4,
+        "rule_findings": 9,
+        "deep_findings": 6,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 2,
+            "name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateDynamicLPFee, settleFor, mint, settle, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "Reentrancy: CEI violation in transfer",
+            "severity": "critical",
+            "detail": "State variable written AFTER transfer()",
+            "sig_id": "SIG-001"
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\ProtocolFees.sol",
+      "timestamp": "2026-06-12T14:36:58.037685+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 0,
+        "medium": 3,
+        "rule_findings": 4,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 2,
+            "name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['initialOwner']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExtsload.sol",
+      "timestamp": "2026-06-12T14:36:58.043660+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IExttload.sol",
+      "timestamp": "2026-06-12T14:36:58.046655+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IHooks.sol",
+      "timestamp": "2026-06-12T14:36:58.097483+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IPoolManager.sol",
+      "timestamp": "2026-06-12T14:36:58.360605+08:00",
+      "findings": {
+        "total": 7,
+        "critical": 1,
+        "high": 6,
+        "medium": 0,
+        "rule_findings": 4,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 27,
+            "name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.3
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\IProtocolFees.sol",
+      "timestamp": "2026-06-12T14:36:58.471028+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\callback\\IUnlockCallback.sol",
+      "timestamp": "2026-06-12T14:36:58.475016+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC20Minimal.sol",
+      "timestamp": "2026-06-12T14:36:58.556050+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\interfaces\\external\\IERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:36:58.610864+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\BitMath.sol",
+      "timestamp": "2026-06-12T14:36:58.645747+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyDelta.sol",
+      "timestamp": "2026-06-12T14:36:58.659701+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CurrencyReserves.sol",
+      "timestamp": "2026-06-12T14:36:58.670671+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\CustomRevert.sol",
+      "timestamp": "2026-06-12T14:36:58.828056+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint128.sol",
+      "timestamp": "2026-06-12T14:36:58.829052+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FixedPoint96.sol",
+      "timestamp": "2026-06-12T14:36:58.831046+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\FullMath.sol",
+      "timestamp": "2026-06-12T14:36:59.228859+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.4
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Hooks.sol",
+      "timestamp": "2026-06-12T14:36:59.338496+08:00",
+      "findings": {
+        "total": 6,
+        "critical": 0,
+        "high": 6,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 4,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 42,
+            "name": "dos-external-call-loop",
+            "severity": "high",
+            "detail": "循环中外部调用 — Gas炸弹DoS"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LiquidityMath.sol",
+      "timestamp": "2026-06-12T14:36:59.342483+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Lock.sol",
+      "timestamp": "2026-06-12T14:36:59.348463+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\LPFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:36:59.420230+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 44,
+            "name": "signature-deadline-missing",
+            "severity": "high",
+            "detail": "签名缺deadline — 永久有效"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\NonzeroDeltaCount.sol",
+      "timestamp": "2026-06-12T14:36:59.432182+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ParseBytes.sol",
+      "timestamp": "2026-06-12T14:36:59.441162+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Pool.sol",
+      "timestamp": "2026-06-12T14:36:59.596637+08:00",
+      "findings": {
+        "total": 10,
+        "critical": 1,
+        "high": 7,
+        "medium": 2,
+        "rule_findings": 5,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateTick, setProtocolFee, setLPFee"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\Position.sol",
+      "timestamp": "2026-06-12T14:36:59.910861+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.3
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\ProtocolFeeLibrary.sol",
+      "timestamp": "2026-06-12T14:36:59.975956+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SafeCast.sol",
+      "timestamp": "2026-06-12T14:37:00.049711+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SqrtPriceMath.sol",
+      "timestamp": "2026-06-12T14:37:01.088766+08:00",
+      "findings": {
+        "total": 6,
+        "critical": 0,
+        "high": 5,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 3 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 1.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\StateLibrary.sol",
+      "timestamp": "2026-06-12T14:37:01.631811+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.5
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\SwapMath.sol",
+      "timestamp": "2026-06-12T14:37:01.657285+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickBitmap.sol",
+      "timestamp": "2026-06-12T14:37:01.876063+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TickMath.sol",
+      "timestamp": "2026-06-12T14:37:03.285563+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 1.4
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\TransientStateLibrary.sol",
+      "timestamp": "2026-06-12T14:37:03.318453+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\libraries\\UnsafeMath.sol",
+      "timestamp": "2026-06-12T14:37:03.327423+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ActionsRouter.sol",
+      "timestamp": "2026-06-12T14:37:03.580191+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.3
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\BaseTestHooks.sol",
+      "timestamp": "2026-06-12T14:37:03.608098+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 4,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CurrencyTest.sol",
+      "timestamp": "2026-06-12T14:37:03.628032+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 1,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 2,
+            "name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\CustomCurveHook.sol",
+      "timestamp": "2026-06-12T14:37:03.786511+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DeltaReturningHook.sol",
+      "timestamp": "2026-06-12T14:37:03.977873+08:00",
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 4,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setDeltaSpecified, setDeltaUnspecifiedAfterSwap, setDeltaUnspecifiedBeforeSwap"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicFeesTestHook.sol",
+      "timestamp": "2026-06-12T14:37:03.992823+08:00",
+      "findings": {
+        "total": 6,
+        "critical": 1,
+        "high": 4,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setFee, setManager"
+          },
+          {
+            "source": "rule",
+            "rule_id": 28,
+            "name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 setFee() 缺时间锁"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\DynamicReturnFeeTestHook.sol",
+      "timestamp": "2026-06-12T14:37:04.004783+08:00",
+      "findings": {
+        "total": 5,
+        "critical": 1,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: setFee"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setFee, setManager"
+          },
+          {
+            "source": "rule",
+            "rule_id": 28,
+            "name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 setFee() 缺时间锁"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyRevertContract.sol",
+      "timestamp": "2026-06-12T14:37:04.005780+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 1,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 47,
+            "name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\EmptyTestHooks.sol",
+      "timestamp": "2026-06-12T14:37:04.087512+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\FeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:37:04.154264+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\Fuzzers.sol",
+      "timestamp": "2026-06-12T14:37:04.830873+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.7
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\HooksTest.sol",
+      "timestamp": "2026-06-12T14:37:04.876720+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LiquidityMathTest.sol",
+      "timestamp": "2026-06-12T14:37:04.877717+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\LPFeeTakingHook.sol",
+      "timestamp": "2026-06-12T14:37:04.908614+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockContract.sol",
+      "timestamp": "2026-06-12T14:37:04.932534+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 1,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setImplementation"
+          },
+          {
+            "source": "rule",
+            "rule_id": 47,
+            "name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockERC6909Claims.sol",
+      "timestamp": "2026-06-12T14:37:04.936122+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\MockHooks.sol",
+      "timestamp": "2026-06-12T14:37:05.094739+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setlpFee, setReturnValue"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NativeERC20.sol",
+      "timestamp": "2026-06-12T14:37:05.109689+08:00",
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\NoDelegateCallTest.sol",
+      "timestamp": "2026-06-12T14:37:05.116665+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolClaimsTest.sol",
+      "timestamp": "2026-06-12T14:37:05.165503+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: withdraw, deposit"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolDonateTest.sol",
+      "timestamp": "2026-06-12T14:37:05.320525+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolEmptyUnlockTest.sol",
+      "timestamp": "2026-06-12T14:37:05.331488+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTest.sol",
+      "timestamp": "2026-06-12T14:37:05.548576+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolModifyLiquidityTestNoChecks.sol",
+      "timestamp": "2026-06-12T14:37:05.602398+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolNestedActionsTest.sol",
+      "timestamp": "2026-06-12T14:37:05.646252+08:00",
+      "findings": {
+        "total": 9,
+        "critical": 2,
+        "high": 6,
+        "medium": 1,
+        "rule_findings": 4,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setKey"
+          },
+          {
+            "source": "rule",
+            "rule_id": 28,
+            "name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 execute() 缺时间锁"
+          },
+          {
+            "source": "rule",
+            "rule_id": 42,
+            "name": "dos-external-call-loop",
+            "severity": "high",
+            "detail": "循环中外部调用 — Gas炸弹DoS"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "Governance: No timelock",
+            "severity": "critical",
+            "detail": "Governance execution without timelock",
+            "sig_id": "SIG-013"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolSwapTest.sol",
+      "timestamp": "2026-06-12T14:37:05.777813+08:00",
+      "findings": {
+        "total": 5,
+        "critical": 1,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 3,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 27,
+            "name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTakeTest.sol",
+      "timestamp": "2026-06-12T14:37:05.805720+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\PoolTestBase.sol",
+      "timestamp": "2026-06-12T14:37:05.814690+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProtocolFeesImplementation.sol",
+      "timestamp": "2026-06-12T14:37:05.827648+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 0,
+        "medium": 2,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 11,
+            "name": "oracle-no-timelock",
+            "severity": "medium",
+            "detail": "价格更新函数无时间锁保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setPrice, updateProtocolFees, setIsUnlocked"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\ProxyPoolManager.sol",
+      "timestamp": "2026-06-12T14:37:05.886074+08:00",
+      "findings": {
+        "total": 15,
+        "critical": 5,
+        "high": 8,
+        "medium": 2,
+        "rule_findings": 10,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 13,
+            "name": "upgrade-initializer-unprotected",
+            "severity": "critical",
+            "detail": "initialize() 无防重复调用保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['delegateManager']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: updateDynamicLPFee, settleFor, mint, settle, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 17,
+            "name": "best-practice-delegatecall-untrusted",
+            "severity": "critical",
+            "detail": "delegatecall 目标可能用户可控 — 代码执行风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 27,
+            "name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 47,
+            "name": "defi-upgrade-proxy-storage",
+            "severity": "critical",
+            "detail": "代理合约缺storage gap — 升级冲突"
+          },
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SkipCallsTestHook.sol",
+      "timestamp": "2026-06-12T14:37:05.931913+08:00",
+      "findings": {
+        "total": 6,
+        "critical": 0,
+        "high": 5,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 4,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManager"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SqrtPriceMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:37:06.536111+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 1,
+        "medium": 2,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 7,
+            "name": "arithmetic-unchecked-math",
+            "severity": "medium",
+            "detail": "使用了 unchecked 块 — 需人工确认是否有溢出风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 1 处 — 可能溢出"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Division before multiplication",
+            "severity": "medium",
+            "detail": "Precision loss from division before multiplication",
+            "sig_id": "SIG-009"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.6
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\SwapRouterNoChecks.sol",
+      "timestamp": "2026-06-12T14:37:06.564018+08:00",
+      "findings": {
+        "total": 6,
+        "critical": 1,
+        "high": 5,
+        "medium": 0,
+        "rule_findings": 4,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 4 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 27,
+            "name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestERC20.sol",
+      "timestamp": "2026-06-12T14:37:06.596909+08:00",
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 4,
+        "medium": 1,
+        "rule_findings": 4,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TestInvalidERC20.sol",
+      "timestamp": "2026-06-12T14:37:06.640763+08:00",
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 4,
+        "medium": 1,
+        "rule_findings": 4,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:37:06.650283+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickMathTest.sol",
+      "timestamp": "2026-06-12T14:37:06.664455+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\test\\TickOverflowSafetyEchidnaTest.sol",
+      "timestamp": "2026-06-12T14:37:06.734326+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setPosition"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BalanceDelta.sol",
+      "timestamp": "2026-06-12T14:37:06.782400+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\BeforeSwapDelta.sol",
+      "timestamp": "2026-06-12T14:37:06.798346+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Currency.sol",
+      "timestamp": "2026-06-12T14:37:07.235332+08:00",
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: transfer"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.4
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolId.sol",
+      "timestamp": "2026-06-12T14:37:07.242309+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolKey.sol",
+      "timestamp": "2026-06-12T14:37:07.255265+08:00",
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\PoolOperation.sol",
+      "timestamp": "2026-06-12T14:37:07.265232+08:00",
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/uni/src\\types\\Slot0.sol",
+      "timestamp": "2026-06-12T14:37:07.351943+08:00",
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setSqrtPriceX96, setTick, setProtocolFee, setLpFee"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    }
+  ]
+}
