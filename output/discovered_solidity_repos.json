@@ -1,0 +1,59 @@
+{
+  "total": 9,
+  "repos": [
+    {
+      "full_name": "Jeiwan/uniswapv3-code",
+      "stars": 381,
+      "description": "Uniswap V3 clone built to learn smart-contracts development in Solidity",
+      "language": "Solidity"
+    },
+    {
+      "full_name": "AstariaXYZ/astaria-core",
+      "stars": 135,
+      "description": "NFT Collateralized Lending Market leveraging our novel 3 Actor Model",
+      "language": "Solidity"
+    },
+    {
+      "full_name": "PavanAnanthSharma/Aave-FlashLoan-using-solidity",
+      "stars": 127,
+      "description": "This contains all the code to execute a successful flash-loan on the Kovan test-net of Ethereum. Fla",
+      "language": "Solidity"
+    },
+    {
+      "full_name": "microgift/my-web3-projects",
+      "stars": 113,
+      "description": "Blockchain projects(+ smart contract) - DeFi, DEX, NFT(+ pnft, cnt, xnft), minting, staking, raffle/",
+      "language": "Rust"
+    },
+    {
+      "full_name": "adorsys/p2p-lending",
+      "stars": 85,
+      "description": "A decentralized, smart contract based platform for p2p-lending on the Ethereum Blockchain",
+      "language": "JavaScript"
+    },
+    {
+      "full_name": "Cryptoaj-hack/DFDTOKEN",
+      "stars": 29,
+      "description": "Decentralized Finance (DeFi) Development Services & Solutions Eliminate the role of a middleman by a",
+      "language": null
+    },
+    {
+      "full_name": "ChainInsighter/silo-contracts-v2",
+      "stars": 24,
+      "description": "Silo Contracts V2 is a collection of modular Solidity smart contracts designed to streamline decentr",
+      "language": "Solidity"
+    },
+    {
+      "full_name": "0xTan1319/RWA-defi-nft-smart-contract",
+      "stars": 23,
+      "description": "RWA (Real-World Asset) DeFi DNFT smart contract for Real-Estate Auctions & Mortgage Lending with Sol",
+      "language": "Solidity"
+    },
+    {
+      "full_name": "bhaumik-choksi/Loan",
+      "stars": 20,
+      "description": "Smart P2P lending using Ethereum smart contracts and deep learning",
+      "language": "Python"
+    }
+  ]
+}

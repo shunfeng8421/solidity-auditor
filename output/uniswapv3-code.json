@@ -1,0 +1,4164 @@
+{
+  "auditor": "solidity-auditor v3.0 (50 rules + CEI + 25 sigs)",
+  "timestamp": "2026-06-13T00:41:23.800591+08:00",
+  "summary": {
+    "files": 42,
+    "total_findings": 148,
+    "critical": 15,
+    "high": 114
+  },
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\scripts\\DeployDevelopment.s.sol",
+      "timestamp": "2026-06-13T00:41:17.770645+08:00",
+      "threat_model": {
+        "file": "DeployDevelopment.s.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "run",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 5,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\UniswapV3Factory.sol",
+      "timestamp": "2026-06-13T00:41:17.786553+08:00",
+      "threat_model": {
+        "file": "UniswapV3Factory.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "createPool",
+            "visibility": "public",
+            "params": "\n        address tokenX,\n        address tokenY,\n        uint24 fee\n    ",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\UniswapV3Manager.sol",
+      "timestamp": "2026-06-13T00:41:17.798522+08:00",
+      "threat_model": {
+        "file": "UniswapV3Manager.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "getPosition",
+            "visibility": "public",
+            "params": "GetPositionParams calldata params",
+            "risk": "low"
+          },
+          {
+            "function": "mint",
+            "visibility": "public",
+            "params": "MintParams calldata params",
+            "risk": "critical"
+          },
+          {
+            "function": "swapSingle",
+            "visibility": "public",
+            "params": "SwapSingleParams calldata params",
+            "risk": "critical"
+          },
+          {
+            "function": "swap",
+            "visibility": "public",
+            "params": "SwapParams memory params",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3MintCallback",
+            "visibility": "public",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3SwapCallback",
+            "visibility": "public",
+            "params": "\n        int256 amount0,\n        int256 amount1,\n        bytes calldata data_\n  ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 7,
+        "critical": 0,
+        "high": 4,
+        "medium": 3,
+        "rule_findings": 5,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['factory_']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\UniswapV3NFTManager.sol",
+      "timestamp": "2026-06-13T00:41:17.820451+08:00",
+      "threat_model": {
+        "file": "UniswapV3NFTManager.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "tokenURI",
+            "visibility": "public",
+            "params": "uint256 tokenId",
+            "risk": "low"
+          },
+          {
+            "function": "mint",
+            "visibility": "public",
+            "params": "MintParams calldata params",
+            "risk": "critical"
+          },
+          {
+            "function": "addLiquidity",
+            "visibility": "public",
+            "params": "AddLiquidityParams calldata params",
+            "risk": "low"
+          },
+          {
+            "function": "removeLiquidity",
+            "visibility": "public",
+            "params": "RemoveLiquidityParams memory params",
+            "risk": "low"
+          },
+          {
+            "function": "collect",
+            "visibility": "public",
+            "params": "CollectParams memory params",
+            "risk": "low"
+          },
+          {
+            "function": "burn",
+            "visibility": "public",
+            "params": "uint256 tokenId",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3MintCallback",
+            "visibility": "public",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 7,
+        "critical": 0,
+        "high": 4,
+        "medium": 3,
+        "rule_findings": 5,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['factoryAddress']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: burn, mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\UniswapV3Pool.sol",
+      "timestamp": "2026-06-13T00:41:17.962668+08:00",
+      "threat_model": {
+        "file": "UniswapV3Pool.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "initialize",
+            "visibility": "public",
+            "params": "uint160 sqrtPriceX96",
+            "risk": "low"
+          },
+          {
+            "function": "mint",
+            "visibility": "external",
+            "params": "\n        address owner,\n        int24 lowerTick,\n        int24 upperTick,\n      ",
+            "risk": "critical"
+          },
+          {
+            "function": "burn",
+            "visibility": "public",
+            "params": "\n        int24 lowerTick,\n        int24 upperTick,\n        uint128 amount\n    ",
+            "risk": "critical"
+          },
+          {
+            "function": "collect",
+            "visibility": "public",
+            "params": "\n        address recipient,\n        int24 lowerTick,\n        int24 upperTick,\n  ",
+            "risk": "low"
+          },
+          {
+            "function": "swap",
+            "visibility": "public",
+            "params": "\n        address recipient,\n        bool zeroForOne,\n        uint256 amountSpeci",
+            "risk": "critical"
+          },
+          {
+            "function": "flash",
+            "visibility": "public",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "low"
+          },
+          {
+            "function": "observe",
+            "visibility": "public",
+            "params": "uint32[] calldata secondsAgos",
+            "risk": "low"
+          },
+          {
+            "function": "increaseObservationCardinalityNext",
+            "visibility": "public",
+            "params": "\n        uint16 observationCardinalityNext\n    ",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 16,
+        "critical": 5,
+        "high": 9,
+        "medium": 2,
+        "rule_findings": 7,
+        "deep_findings": 9,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint, burn"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: burn, mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 26,
+            "name": "flashloan-atomic-arbitrage",
+            "severity": "high",
+            "detail": "闪电贷+swap同存 — 价格操纵攻击路径"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in collect(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in swap(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in swap(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Uncollateralized borrow + swap",
+            "severity": "critical",
+            "detail": "Flash loan followed by swap in same tx",
+            "sig_id": "SIG-011"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\UniswapV3Quoter.sol",
+      "timestamp": "2026-06-13T00:41:17.968652+08:00",
+      "threat_model": {
+        "file": "UniswapV3Quoter.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "quote",
+            "visibility": "public",
+            "params": "bytes memory path, uint256 amountIn",
+            "risk": "low"
+          },
+          {
+            "function": "quoteSingle",
+            "visibility": "public",
+            "params": "QuoteSingleParams memory params",
+            "risk": "low"
+          },
+          {
+            "function": "uniswapV3SwapCallback",
+            "visibility": "external",
+            "params": "\n        int256 amount0Delta,\n        int256 amount1Delta,\n        bytes memory ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['factory_']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IERC20.sol",
+      "timestamp": "2026-06-13T00:41:17.970646+08:00",
+      "threat_model": {
+        "file": "IERC20.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "symbol",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "approve",
+            "visibility": "external",
+            "params": "address, uint256",
+            "risk": "low"
+          },
+          {
+            "function": "balanceOf",
+            "visibility": "external",
+            "params": "address",
+            "risk": "low"
+          },
+          {
+            "function": "transfer",
+            "visibility": "external",
+            "params": "address, uint256",
+            "risk": "critical"
+          },
+          {
+            "function": "transferFrom",
+            "visibility": "external",
+            "params": "\n        address,\n        address,\n        uint256\n    ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "HIGH"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3FlashCallback.sol",
+      "timestamp": "2026-06-13T00:41:17.970646+08:00",
+      "threat_model": {
+        "file": "IUniswapV3FlashCallback.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "uniswapV3FlashCallback",
+            "visibility": "external",
+            "params": "\n        uint256 fee0,\n        uint256 fee1,\n        bytes calldata data\n    ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3Manager.sol",
+      "timestamp": "2026-06-13T00:41:17.972596+08:00",
+      "threat_model": {
+        "file": "IUniswapV3Manager.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3MintCallback.sol",
+      "timestamp": "2026-06-13T00:41:17.973639+08:00",
+      "threat_model": {
+        "file": "IUniswapV3MintCallback.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "uniswapV3MintCallback",
+            "visibility": "external",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3Pool.sol",
+      "timestamp": "2026-06-13T00:41:17.975565+08:00",
+      "threat_model": {
+        "file": "IUniswapV3Pool.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "slot0",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "factory",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "token0",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "token1",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "tickSpacing",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "fee",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "positions",
+            "visibility": "external",
+            "params": "bytes32 key",
+            "risk": "low"
+          },
+          {
+            "function": "mint",
+            "visibility": "external",
+            "params": "\n        address owner,\n        int24 lowerTick,\n        int24 upperTick,\n      ",
+            "risk": "critical"
+          },
+          {
+            "function": "burn",
+            "visibility": "external",
+            "params": "\n        int24 lowerTick,\n        int24 upperTick,\n        uint128 amount\n    ",
+            "risk": "critical"
+          },
+          {
+            "function": "collect",
+            "visibility": "external",
+            "params": "\n        address recipient,\n        int24 lowerTick,\n        int24 upperTick,\n  ",
+            "risk": "low"
+          },
+          {
+            "function": "swap",
+            "visibility": "external",
+            "params": "\n        address recipient,\n        bool zeroForOne,\n        uint256 amountSpeci",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 0,
+        "high": 5,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3PoolDeployer.sol",
+      "timestamp": "2026-06-13T00:41:17.977626+08:00",
+      "threat_model": {
+        "file": "IUniswapV3PoolDeployer.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "parameters",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\interfaces\\IUniswapV3SwapCallback.sol",
+      "timestamp": "2026-06-13T00:41:17.977626+08:00",
+      "threat_model": {
+        "file": "IUniswapV3SwapCallback.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "uniswapV3SwapCallback",
+            "visibility": "external",
+            "params": "\n        int256 amount0,\n        int256 amount1,\n        bytes calldata data\n   ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\BitMath.sol",
+      "timestamp": "2026-06-13T00:41:18.012499+08:00",
+      "threat_model": {
+        "file": "BitMath.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\FixedPoint128.sol",
+      "timestamp": "2026-06-13T00:41:18.013500+08:00",
+      "threat_model": {
+        "file": "FixedPoint128.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\FixedPoint96.sol",
+      "timestamp": "2026-06-13T00:41:18.013500+08:00",
+      "threat_model": {
+        "file": "FixedPoint96.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\LiquidityMath.sol",
+      "timestamp": "2026-06-13T00:41:18.048513+08:00",
+      "threat_model": {
+        "file": "LiquidityMath.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\Math.sol",
+      "timestamp": "2026-06-13T00:41:18.212115+08:00",
+      "threat_model": {
+        "file": "Math.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\NFTRenderer.sol",
+      "timestamp": "2026-06-13T00:41:18.336607+08:00",
+      "threat_model": {
+        "file": "NFTRenderer.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 2 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\Oracle.sol",
+      "timestamp": "2026-06-13T00:41:18.349557+08:00",
+      "threat_model": {
+        "file": "Oracle.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\Path.sol",
+      "timestamp": "2026-06-13T00:41:18.372488+08:00",
+      "threat_model": {
+        "file": "Path.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\PoolAddress.sol",
+      "timestamp": "2026-06-13T00:41:18.376474+08:00",
+      "threat_model": {
+        "file": "PoolAddress.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\Position.sol",
+      "timestamp": "2026-06-13T00:41:18.390420+08:00",
+      "threat_model": {
+        "file": "Position.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\SwapMath.sol",
+      "timestamp": "2026-06-13T00:41:18.394414+08:00",
+      "threat_model": {
+        "file": "SwapMath.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\Tick.sol",
+      "timestamp": "2026-06-13T00:41:18.472634+08:00",
+      "threat_model": {
+        "file": "Tick.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\TickBitmap.sol",
+      "timestamp": "2026-06-13T00:41:18.565325+08:00",
+      "threat_model": {
+        "file": "TickBitmap.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\src\\lib\\TickMath.sol",
+      "timestamp": "2026-06-13T00:41:18.899184+08:00",
+      "threat_model": {
+        "file": "TickMath.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 3 处 — 可能溢出"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.3
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\Assertions.sol",
+      "timestamp": "2026-06-13T00:41:19.129001+08:00",
+      "threat_model": {
+        "file": "Assertions.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "assertPosition",
+            "visibility": "public",
+            "params": "ExpectedPosition memory params",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: Spot price from AMM",
+            "severity": "critical",
+            "detail": "Using AMM spot price as oracle",
+            "sig_id": "SIG-006"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\ERC20Mintable.sol",
+      "timestamp": "2026-06-13T00:41:19.130002+08:00",
+      "threat_model": {
+        "file": "ERC20Mintable.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "mint",
+            "visibility": "public",
+            "params": "address to, uint256 amount",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: mint"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\TestUtils.sol",
+      "timestamp": "2026-06-13T00:41:19.144063+08:00",
+      "threat_model": {
+        "file": "TestUtils.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\TestUtils.t.sol",
+      "timestamp": "2026-06-13T00:41:19.149555+08:00",
+      "threat_model": {
+        "file": "TestUtils.t.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "testNearestUsableTick",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testTick60",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testSqrtP60",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Factory.t.sol",
+      "timestamp": "2026-06-13T00:41:19.157955+08:00",
+      "threat_model": {
+        "file": "UniswapV3Factory.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testCreatePool",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCreatePoolUnsupportedFee",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCreatePoolIdenticalTokens",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCreateZeroTokenAddress",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCreateAlreadyExists",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 0,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Manager.t.sol",
+      "timestamp": "2026-06-13T00:41:20.650256+08:00",
+      "threat_model": {
+        "file": "UniswapV3Manager.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testMintInRange",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintRangeBelow",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintRangeAbove",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintOverlappingRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintPartiallyOverlappingRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintInvalidTickRangeLower",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintInvalidTickRangeUpper",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintZeroLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintInsufficientTokenBalance",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintSlippageProtection",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyEth",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyUSDC",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyMultipool",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapMixed",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyEthNotEnoughLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyUSDCNotEnoughLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapInsufficientInputAmount",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testGetPosition",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 8,
+        "critical": 1,
+        "high": 6,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp, setupPool, setupPool"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: Spot price from AMM",
+            "severity": "critical",
+            "detail": "Using AMM spot price as oracle",
+            "sig_id": "SIG-006"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 1.5
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3NFTManager.t.sol",
+      "timestamp": "2026-06-13T00:41:21.407470+08:00",
+      "threat_model": {
+        "file": "UniswapV3NFTManager.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testMint",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintMultiple",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testAddLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testRemoveLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCollect",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBurn",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testTokenURI",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 8,
+        "critical": 1,
+        "high": 6,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: Spot price from AMM",
+            "severity": "critical",
+            "detail": "Using AMM spot price as oracle",
+            "sig_id": "SIG-006"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.8
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Pool.Swaps.t.sol",
+      "timestamp": "2026-06-13T00:41:22.237200+08:00",
+      "threat_model": {
+        "file": "UniswapV3Pool.Swaps.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testBuyETHOnePriceRange",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyETHTwoEqualPriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyETHConsecutivePriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyETHPartiallyOverlappingPriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyETHSlippageInterruption",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyUSDCOnePriceRange",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyUSDCTwoEqualPriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyUSDCConsecutivePriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyUSDCPartiallyOverlappingPriceRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testBuyUSDCSlippageInterruption",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testSwapBuyEthNotEnoughLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapBuyUSDCNotEnoughLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapMixed",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testSwapInsufficientInputAmount",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testObservations",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserve",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "uniswapV3SwapCallback",
+            "visibility": "public",
+            "params": "\n        int256 amount0,\n        int256 amount1,\n        bytes calldata data\n   ",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3MintCallback",
+            "visibility": "public",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 11,
+        "critical": 1,
+        "high": 8,
+        "medium": 2,
+        "rule_findings": 5,
+        "deep_findings": 6,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 20 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp, setupPool"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: Spot price from AMM",
+            "severity": "critical",
+            "detail": "Using AMM spot price as oracle",
+            "sig_id": "SIG-006"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.8
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Pool.t.sol",
+      "timestamp": "2026-06-13T00:41:23.649524+08:00",
+      "threat_model": {
+        "file": "UniswapV3Pool.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testInitialize",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testMintInRange",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintRangeBelow",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintRangeAbove",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintOverlappingRanges",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testBurn",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testBurnPartially",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testCollect",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCollectAfterZeroBurn",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testCollectMoreThanAvailable",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCollectPartially",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testMintInvalidTickRangeLower",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintInvalidTickRangeUpper",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintZeroLiquidity",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testMintInsufficientTokenBalance",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testFlash",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "uniswapV3MintCallback",
+            "visibility": "public",
+            "params": "\n        uint256 amount0,\n        uint256 amount1,\n        bytes calldata data\n ",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3SwapCallback",
+            "visibility": "public",
+            "params": "\n        int256 amount0,\n        int256 amount1,\n        bytes calldata data\n   ",
+            "risk": "critical"
+          },
+          {
+            "function": "uniswapV3FlashCallback",
+            "visibility": "public",
+            "params": "\n        uint256 fee0,\n        uint256 fee1,\n        bytes calldata data\n    ",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 15,
+        "critical": 4,
+        "high": 9,
+        "medium": 2,
+        "rule_findings": 5,
+        "deep_findings": 10,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 9,
+            "name": "arithmetic-unsafe-casting",
+            "severity": "high",
+            "detail": "不安全类型转换 5 处 — 可能溢出"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp, setupPool"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in uniswapV3FlashCallback(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in uniswapV3FlashCallback(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "Reentrancy: CEI violation in transfer",
+            "severity": "critical",
+            "detail": "State variable written AFTER transfer()",
+            "sig_id": "SIG-001"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: Spot price from AMM",
+            "severity": "critical",
+            "detail": "Using AMM spot price as oracle",
+            "sig_id": "SIG-006"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Sandwichable swap",
+            "severity": "high",
+            "detail": "Swap without deadline or price limit",
+            "sig_id": "SIG-019"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 1.4
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Pool.Utils.t.sol",
+      "timestamp": "2026-06-13T00:41:23.654558+08:00",
+      "threat_model": {
+        "file": "UniswapV3Pool.Utils.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\UniswapV3Quoter.t.sol",
+      "timestamp": "2026-06-13T00:41:23.668425+08:00",
+      "threat_model": {
+        "file": "UniswapV3Quoter.t.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          },
+          {
+            "type": "nft",
+            "name": "NFT",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setUp",
+            "visibility": "public",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "testQuoteUSDCforETH",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testQuoteETHforUSDC",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testQuoteUNIforUSDCviaETH",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testQuoteAndSwapUNIforUSDCviaETH",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testQuoteAndSwapUSDCforETH",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "testQuoteAndSwapETHforUSDC",
+            "visibility": "public",
+            "params": "",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Uniswap",
+            "type": "DEX",
+            "risk": "price manipulation"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 8,
+        "critical": 0,
+        "high": 6,
+        "medium": 2,
+        "rule_findings": 3,
+        "deep_findings": 5,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setUp"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Oracle: TWAP bypass",
+            "severity": "high",
+            "detail": "Using instantaneous price instead of TWAP",
+            "sig_id": "SIG-008"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Division before multiplication",
+            "severity": "medium",
+            "detail": "Precision loss from division before multiplication",
+            "sig_id": "SIG-009"
+          },
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\lib\\Math.t.sol",
+      "timestamp": "2026-06-13T00:41:23.682382+08:00",
+      "threat_model": {
+        "file": "Math.t.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "testCalcAmount0Delta",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCalcAmount1Delta",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCalcAmount0DeltaNegative",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testCalcAmount1DeltaNegative",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\lib\\Oracle.t.sol",
+      "timestamp": "2026-06-13T00:41:23.700360+08:00",
+      "threat_model": {
+        "file": "Oracle.t.sol",
+        "assets": [
+          {
+            "type": "oracle",
+            "name": "Price Feed",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "testObserveSingleAtCurrentTime",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserveSingleInPastOLD",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserveSingleInPast",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserveSingleTwoObservations",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserveSingleTwoObservationsReverseOrder",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testObserve",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 1,
+        "high": 2,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 48,
+            "name": "defi-initializer-race",
+            "severity": "high",
+            "detail": "初始化可被抢跑"
+          },
+          {
+            "source": "deep",
+            "name": "Access: Unprotected initialize",
+            "severity": "critical",
+            "detail": "initialize() callable by anyone",
+            "sig_id": "SIG-004"
+          },
+          {
+            "source": "deep",
+            "name": "MEV: Frontrunnable init",
+            "severity": "high",
+            "detail": "Initialization can be frontrun",
+            "sig_id": "SIG-020"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\lib\\Path.t.sol",
+      "timestamp": "2026-06-13T00:41:23.775683+08:00",
+      "threat_model": {
+        "file": "Path.t.sol",
+        "assets": [
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "testHasMultiplePools",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testGetFirstPool",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testSkipToken",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testDecodeFirstPool",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testNumPools",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "deep",
+            "name": "Arithmetic: Unsafe downcasting",
+            "severity": "high",
+            "detail": "Downcasting can overflow silently",
+            "sig_id": "SIG-010"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-uniswapv3-code\\test\\lib\\Tick.t.sol",
+      "timestamp": "2026-06-13T00:41:23.800591+08:00",
+      "threat_model": {
+        "file": "Tick.t.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "testGetFeeGrowthInsideUninitialized",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "testGetFeeGrowthInsideInitialized",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 0,
+        "deep_findings": 0,
+        "details": []
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    }
+  ]
+}

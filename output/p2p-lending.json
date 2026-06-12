@@ -1,0 +1,1274 @@
+{
+  "auditor": "solidity-auditor v3.0 (50 rules + CEI + 25 sigs)",
+  "timestamp": "2026-06-13T00:42:44.773653+08:00",
+  "summary": {
+    "files": 11,
+    "total_findings": 42,
+    "critical": 12,
+    "high": 10
+  },
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\Migrations.sol",
+      "timestamp": "2026-06-13T00:42:43.177100+08:00",
+      "threat_model": {
+        "file": "Migrations.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setCompleted",
+            "visibility": "public",
+            "params": "uint completed",
+            "risk": "high"
+          },
+          {
+            "function": "upgrade",
+            "visibility": "public",
+            "params": "address new_address",
+            "risk": "high"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setCompleted"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\SafeMath.sol",
+      "timestamp": "2026-06-13T00:42:43.196118+08:00",
+      "threat_model": {
+        "file": "SafeMath.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "OpenZeppelin",
+            "type": "library",
+            "risk": "supply chain"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\IcoContract\\EIP20Interface.sol",
+      "timestamp": "2026-06-13T00:42:43.216667+08:00",
+      "threat_model": {
+        "file": "EIP20Interface.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "balanceOf",
+            "visibility": "public",
+            "params": "address _owner",
+            "risk": "low"
+          },
+          {
+            "function": "transfer",
+            "visibility": "public",
+            "params": "address _to, uint256 _value",
+            "risk": "critical"
+          },
+          {
+            "function": "transferFrom",
+            "visibility": "public",
+            "params": "address _from, address _to, uint256 _value",
+            "risk": "critical"
+          },
+          {
+            "function": "approve",
+            "visibility": "public",
+            "params": "address _spender, uint256 _value",
+            "risk": "low"
+          },
+          {
+            "function": "allowance",
+            "visibility": "public",
+            "params": "address _owner, address _spender",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "HIGH"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\IcoContract\\TrustToken.sol",
+      "timestamp": "2026-06-13T00:42:43.665681+08:00",
+      "threat_model": {
+        "file": "TrustToken.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setManagement",
+            "visibility": "external",
+            "params": "address _management",
+            "risk": "high"
+          },
+          {
+            "function": "lockUser",
+            "visibility": "external",
+            "params": "address _user",
+            "risk": "low"
+          },
+          {
+            "function": "unlockUsers",
+            "visibility": "external",
+            "params": "address[] calldata _users",
+            "risk": "low"
+          },
+          {
+            "function": "participate",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "transfer",
+            "visibility": "public",
+            "params": "address _to, uint256 _value",
+            "risk": "critical"
+          },
+          {
+            "function": "transferFrom",
+            "visibility": "public",
+            "params": "address _from, address _to, uint256 _value",
+            "risk": "critical"
+          },
+          {
+            "function": "approve",
+            "visibility": "public",
+            "params": "address _spender, uint256 _value",
+            "risk": "low"
+          },
+          {
+            "function": "allowance",
+            "visibility": "public",
+            "params": "address _owner, address _spender",
+            "risk": "low"
+          },
+          {
+            "function": "balanceOf",
+            "visibility": "public",
+            "params": "address _owner",
+            "risk": "low"
+          },
+          {
+            "function": "getICOParameters",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getEtherBalances",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "HIGH"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 1,
+        "high": 3,
+        "medium": 1,
+        "rule_findings": 3,
+        "deep_findings": 2,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManagement"
+          },
+          {
+            "source": "rule",
+            "rule_id": 20,
+            "name": "best-practice-erc20-approve-race",
+            "severity": "high",
+            "detail": "使用 approve() 而非 increaseAllowance — 竞态条件风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Reentrancy: CEI violation in transfer",
+            "severity": "critical",
+            "detail": "State variable written AFTER transfer()",
+            "sig_id": "SIG-001"
+          },
+          {
+            "source": "deep",
+            "name": "ERC20: approve race condition",
+            "severity": "high",
+            "detail": "Standard approve() vulnerable to race condition",
+            "sig_id": "SIG-015"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.4
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\ProposalManagement\\ContractFeeProposal.sol",
+      "timestamp": "2026-06-13T00:42:43.701554+08:00",
+      "threat_model": {
+        "file": "ContractFeeProposal.sol",
+        "assets": [
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          },
+          {
+            "type": "governance",
+            "name": "Voting Power",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "kill",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "vote",
+            "visibility": "external",
+            "params": "bool _stance, address _origin",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 3,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 4,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 6,
+            "name": "access-unprotected-selfdestruct",
+            "severity": "critical",
+            "detail": "selfdestruct 在 kill() 中无权限保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_managementContract']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 28,
+            "name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 execute() 缺时间锁"
+          },
+          {
+            "source": "deep",
+            "name": "Governance: No timelock",
+            "severity": "critical",
+            "detail": "Governance execution without timelock",
+            "sig_id": "SIG-013"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\ProposalManagement\\MemberProposal.sol",
+      "timestamp": "2026-06-13T00:42:43.737512+08:00",
+      "threat_model": {
+        "file": "MemberProposal.sol",
+        "assets": [
+          {
+            "type": "governance",
+            "name": "Voting Power",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "kill",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "vote",
+            "visibility": "external",
+            "params": "bool _stance, address _origin",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 3,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 4,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 6,
+            "name": "access-unprotected-selfdestruct",
+            "severity": "critical",
+            "detail": "selfdestruct 在 kill() 中无权限保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_memberAddress', '_managementContract']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 28,
+            "name": "governance-timelock-missing",
+            "severity": "critical",
+            "detail": "治理函数 execute() 缺时间锁"
+          },
+          {
+            "source": "deep",
+            "name": "Governance: No timelock",
+            "severity": "critical",
+            "detail": "Governance execution without timelock",
+            "sig_id": "SIG-013"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\ProposalManagement\\ProposalFactory.sol",
+      "timestamp": "2026-06-13T00:42:43.753488+08:00",
+      "threat_model": {
+        "file": "ProposalFactory.sol",
+        "assets": [
+          {
+            "type": "governance",
+            "name": "Voting Power",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "newContractFeeProposal",
+            "visibility": "external",
+            "params": "\n        uint256 _proposedFee,\n        uint16 _minimumNumberOfVotes,\n        uin",
+            "risk": "low"
+          },
+          {
+            "function": "newMemberProposal",
+            "visibility": "external",
+            "params": "\n        address _memberAddress,\n        bool _adding,\n        uint256 _trusteeC",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\ProposalManagement\\ProposalManagement.sol",
+      "timestamp": "2026-06-13T00:42:44.384032+08:00",
+      "threat_model": {
+        "file": "ProposalManagement.sol",
+        "assets": [
+          {
+            "type": "governance",
+            "name": "Voting Power",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "setManagement",
+            "visibility": "external",
+            "params": "address",
+            "risk": "high"
+          },
+          {
+            "function": "isTrustee",
+            "visibility": "external",
+            "params": "address",
+            "risk": "low"
+          },
+          {
+            "function": "trusteeCount",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "lockUser",
+            "visibility": "external",
+            "params": "address",
+            "risk": "low"
+          },
+          {
+            "function": "unlockUsers",
+            "visibility": "external",
+            "params": "address[] calldata",
+            "risk": "low"
+          },
+          {
+            "function": "newContractFeeProposal",
+            "visibility": "external",
+            "params": "uint256, uint16, uint8",
+            "risk": "low"
+          },
+          {
+            "function": "newMemberProposal",
+            "visibility": "external",
+            "params": "address, bool, uint256, uint8",
+            "risk": "low"
+          },
+          {
+            "function": "vote",
+            "visibility": "external",
+            "params": "bool, address",
+            "risk": "low"
+          },
+          {
+            "function": "proposedFee",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "kill",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "vote",
+            "visibility": "external",
+            "params": "bool, address",
+            "risk": "low"
+          },
+          {
+            "function": "memberAddress",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "kill",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "createContractFeeProposal",
+            "visibility": "external",
+            "params": "uint256 _proposedFee",
+            "risk": "low"
+          },
+          {
+            "function": "createMemberProposal",
+            "visibility": "external",
+            "params": "address _memberAddress, bool _adding",
+            "risk": "low"
+          },
+          {
+            "function": "vote",
+            "visibility": "external",
+            "params": "bool _stance, address _proposalAddress",
+            "risk": "low"
+          },
+          {
+            "function": "getProposalsLength",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getProposals",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getMembersLength",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getProposalParameters",
+            "visibility": "external",
+            "params": "address _proposal",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 3,
+        "critical": 0,
+        "high": 0,
+        "medium": 2,
+        "rule_findings": 3,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_proposalFactoryAddress', '_trustTokenContract']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: setManagement"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.6
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\RequestManagement\\LendingRequest.sol",
+      "timestamp": "2026-06-13T00:42:44.524481+08:00",
+      "threat_model": {
+        "file": "LendingRequest.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "deposit",
+            "visibility": "external",
+            "params": "address payable _origin",
+            "risk": "high"
+          },
+          {
+            "function": "withdraw",
+            "visibility": "external",
+            "params": "address _origin",
+            "risk": "critical"
+          },
+          {
+            "function": "cleanUp",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "cancelRequest",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getRequestParameters",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getRequestState",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "HIGH"
+      },
+      "findings": {
+        "total": 10,
+        "critical": 4,
+        "high": 2,
+        "medium": 3,
+        "rule_findings": 7,
+        "deep_findings": 3,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 6,
+            "name": "access-unprotected-selfdestruct",
+            "severity": "critical",
+            "detail": "selfdestruct 在 cleanUp() 中无权限保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_asker', '_managementContract', '_trustToken']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: deposit, withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in withdraw(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in withdraw(): state changes after external call",
+            "sig_id": null
+          },
+          {
+            "source": "deep",
+            "name": "Reentrancy: CEI violation in transfer",
+            "severity": "critical",
+            "detail": "State variable written AFTER transfer()",
+            "sig_id": "SIG-001"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.1
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\RequestManagement\\RequestFactory.sol",
+      "timestamp": "2026-06-13T00:42:44.540433+08:00",
+      "threat_model": {
+        "file": "RequestFactory.sol",
+        "assets": [
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "isTrustee",
+            "visibility": "external",
+            "params": "address",
+            "risk": "low"
+          },
+          {
+            "function": "memberId",
+            "visibility": "external",
+            "params": "address",
+            "risk": "low"
+          },
+          {
+            "function": "contractFee",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "createLendingRequest",
+            "visibility": "public",
+            "params": "\n        uint256 _amount,\n        uint256 _paybackAmount,\n        string memory ",
+            "risk": "high"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_trustToken', '_proposalManagement']"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-p2p-lending\\contracts\\RequestManagement\\RequestManagement.sol",
+      "timestamp": "2026-06-13T00:42:44.773653+08:00",
+      "threat_model": {
+        "file": "RequestManagement.sol",
+        "assets": [
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "createLendingRequest",
+            "visibility": "external",
+            "params": "uint256, uint256, string calldata, address payable",
+            "risk": "high"
+          },
+          {
+            "function": "deposit",
+            "visibility": "external",
+            "params": "address payable",
+            "risk": "high"
+          },
+          {
+            "function": "withdraw",
+            "visibility": "external",
+            "params": "address",
+            "risk": "critical"
+          },
+          {
+            "function": "cleanUp",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "cancelRequest",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "asker",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "withdrawnByLender",
+            "visibility": "external",
+            "params": "",
+            "risk": "critical"
+          },
+          {
+            "function": "getRequestParameters",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getRequestState",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "ask",
+            "visibility": "public",
+            "params": "uint256 _amount, uint256 _paybackAmount, string memory _purpose",
+            "risk": "low"
+          },
+          {
+            "function": "deposit",
+            "visibility": "public",
+            "params": "address payable _lendingRequest",
+            "risk": "high"
+          },
+          {
+            "function": "withdraw",
+            "visibility": "public",
+            "params": "address payable _lendingRequest",
+            "risk": "critical"
+          },
+          {
+            "function": "cancelRequest",
+            "visibility": "public",
+            "params": "address payable _lendingRequest",
+            "risk": "low"
+          },
+          {
+            "function": "getRequests",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "getRequestParameters",
+            "visibility": "public",
+            "params": "address payable _lendingRequest",
+            "risk": "low"
+          },
+          {
+            "function": "getRequestState",
+            "visibility": "public",
+            "params": "address payable _lendingRequest",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 6,
+        "critical": 1,
+        "high": 2,
+        "medium": 2,
+        "rule_findings": 6,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 4,
+            "name": "access-missing-owner-check",
+            "severity": "high",
+            "detail": "关键函数缺少权限检查: withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 6,
+            "name": "access-unprotected-selfdestruct",
+            "severity": "critical",
+            "detail": "selfdestruct 在 withdraw() 中无权限保护"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_factory']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: deposit, withdraw, withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.2
+      }
+    }
+  ]
+}

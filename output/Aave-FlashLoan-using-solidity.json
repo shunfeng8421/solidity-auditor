@@ -1,0 +1,599 @@
+{
+  "auditor": "solidity-auditor v3.0 (50 rules + CEI + 25 sigs)",
+  "timestamp": "2026-06-13T00:42:40.098919+08:00",
+  "summary": {
+    "files": 6,
+    "total_findings": 19,
+    "critical": 4,
+    "high": 6
+  },
+  "reports": [
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\FlashLoan.sol",
+      "timestamp": "2026-06-13T00:42:40.043765+08:00",
+      "threat_model": {
+        "file": "FlashLoan.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "Owner_Of_This_Contract",
+            "visibility": "public",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "flashloan",
+            "visibility": "public",
+            "params": "address _asset",
+            "risk": "low"
+          },
+          {
+            "function": "executeOperation",
+            "visibility": "external",
+            "params": "\n        address _reserve,\n        uint256 _amount,\n        uint256 _fee,\n      ",
+            "risk": "medium"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "owner",
+            "trust": "full",
+            "risk": "single point of failure"
+          }
+        ],
+        "roles": [
+          {
+            "role": "OWNER (onlyOwner)",
+            "risk": "critical"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_addressProvider']"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\FlashLoanReceiverBase.sol",
+      "timestamp": "2026-06-13T00:42:40.059712+08:00",
+      "threat_model": {
+        "file": "FlashLoanReceiverBase.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          },
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "N/A",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "OpenZeppelin",
+            "type": "library",
+            "risk": "supply chain"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 6,
+        "critical": 2,
+        "high": 1,
+        "medium": 2,
+        "rule_findings": 6,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 1,
+            "name": "reentrancy-external-call",
+            "severity": "critical",
+            "detail": "外部调用后缺少状态更新 — 重入攻击风险 (SWC-107)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 2,
+            "name": "reentrancy-no-cei",
+            "severity": "critical",
+            "detail": "缺少 CEI 模式 — 外部调用前缺少校验 (require/if)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 3,
+            "name": "reentrancy-unchecked-send",
+            "severity": "high",
+            "detail": "未检查 .send/.call 返回值 (0 send, 1 call)"
+          },
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 15,
+            "name": "best-practice-zero-address-check",
+            "severity": "medium",
+            "detail": "构造函数缺少零地址检查: ['_addressProvider']"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\IFlashLoanReceiver.sol",
+      "timestamp": "2026-06-13T00:42:40.060714+08:00",
+      "threat_model": {
+        "file": "IFlashLoanReceiver.sol",
+        "assets": [
+          {
+            "type": "unknown",
+            "name": "Unidentified",
+            "risk": "medium"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "executeOperation",
+            "visibility": "external",
+            "params": "address _reserve, uint256 _amount, uint256 _fee, bytes calldata _params",
+            "risk": "medium"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "Aave",
+            "type": "lending",
+            "risk": "pool insolvency"
+          }
+        ],
+        "risk_level": "LOW"
+      },
+      "findings": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "rule_findings": 2,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 22,
+            "name": "best-practice-flashloan-unprotected",
+            "severity": "high",
+            "detail": "闪电贷回调函数无权限检查"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\ILendingPool.sol",
+      "timestamp": "2026-06-13T00:42:40.087956+08:00",
+      "threat_model": {
+        "file": "ILendingPool.sol",
+        "assets": [
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "addressesProvider",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          },
+          {
+            "function": "deposit",
+            "visibility": "external",
+            "params": " address _reserve, uint256 _amount, uint16 _referralCode ",
+            "risk": "high"
+          },
+          {
+            "function": "redeemUnderlying",
+            "visibility": "external",
+            "params": " address _reserve, address _user, uint256 _amount ",
+            "risk": "medium"
+          },
+          {
+            "function": "borrow",
+            "visibility": "external",
+            "params": " address _reserve, uint256 _amount, uint256 _interestRateMode, uint16 _referralC",
+            "risk": "high"
+          },
+          {
+            "function": "repay",
+            "visibility": "external",
+            "params": " address _reserve, uint256 _amount, address _onBehalfOf ",
+            "risk": "low"
+          },
+          {
+            "function": "swapBorrowRateMode",
+            "visibility": "external",
+            "params": " address _reserve ",
+            "risk": "critical"
+          },
+          {
+            "function": "rebalanceFixedBorrowRate",
+            "visibility": "external",
+            "params": " address _reserve, address _user ",
+            "risk": "high"
+          },
+          {
+            "function": "setUserUseReserveAsCollateral",
+            "visibility": "external",
+            "params": " address _reserve, bool _useAsCollateral ",
+            "risk": "high"
+          },
+          {
+            "function": "liquidationCall",
+            "visibility": "external",
+            "params": " address _collateral, address _reserve, address _user, uint256 _purchaseAmount, ",
+            "risk": "low"
+          },
+          {
+            "function": "flashLoan",
+            "visibility": "external",
+            "params": " address _receiver, address _reserve, uint256 _amount, bytes calldata _params ",
+            "risk": "low"
+          },
+          {
+            "function": "getReserveConfigurationData",
+            "visibility": "external",
+            "params": " address _reserve ",
+            "risk": "low"
+          },
+          {
+            "function": "getReserveData",
+            "visibility": "external",
+            "params": " address _reserve ",
+            "risk": "low"
+          },
+          {
+            "function": "getUserAccountData",
+            "visibility": "external",
+            "params": " address _user ",
+            "risk": "low"
+          },
+          {
+            "function": "getUserReserveData",
+            "visibility": "external",
+            "params": " address _reserve, address _user ",
+            "risk": "low"
+          },
+          {
+            "function": "getReserves",
+            "visibility": "external",
+            "params": "",
+            "risk": "low"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "CRITICAL"
+      },
+      "findings": {
+        "total": 5,
+        "critical": 1,
+        "high": 4,
+        "medium": 0,
+        "rule_findings": 4,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 10,
+            "name": "oracle-spot-price",
+            "severity": "high",
+            "detail": "使用现货价格 — 闪电贷价格操纵风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 21,
+            "name": "best-practice-slippage-none",
+            "severity": "high",
+            "detail": "swap 函数缺少滑点保护 — 三明治攻击风险"
+          },
+          {
+            "source": "rule",
+            "rule_id": 27,
+            "name": "mev-sandwich-no-slippage",
+            "severity": "critical",
+            "detail": "AMM 函数缺滑点保护 — 三明治攻击"
+          },
+          {
+            "source": "rule",
+            "rule_id": 46,
+            "name": "defi-emergency-pause-missing",
+            "severity": "high",
+            "detail": "大额资产合约缺暂停机制"
+          },
+          {
+            "source": "deep",
+            "name": "Flash loan: Price impact not checked",
+            "severity": "high",
+            "detail": "Swap without minimum return check",
+            "sig_id": "SIG-012"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\ILendingPoolAddressesProvider.sol",
+      "timestamp": "2026-06-13T00:42:40.088952+08:00",
+      "threat_model": {
+        "file": "ILendingPoolAddressesProvider.sol",
+        "assets": [
+          {
+            "type": "native",
+            "name": "ETH/Matic",
+            "risk": "high"
+          },
+          {
+            "type": "pool",
+            "name": "Pooled Funds",
+            "risk": "critical"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "getLendingPoolCore",
+            "visibility": "external",
+            "params": "",
+            "risk": "high"
+          },
+          {
+            "function": "getLendingPool",
+            "visibility": "external",
+            "params": "",
+            "risk": "high"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "none",
+            "trust": "unknown"
+          }
+        ],
+        "roles": [
+          {
+            "role": "N/A",
+            "risk": "unknown"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "N/A",
+            "risk": "none"
+          }
+        ],
+        "risk_level": "MEDIUM"
+      },
+      "findings": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "rule_findings": 1,
+        "deep_findings": 0,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    },
+    {
+      "file": "C:/Users/ADMINI~1/AppData/Local/Temp/sol-Aave-FlashLoan-using-solidity\\FlashloanContracts\\Withdrawable.sol",
+      "timestamp": "2026-06-13T00:42:40.098919+08:00",
+      "threat_model": {
+        "file": "Withdrawable.sol",
+        "assets": [
+          {
+            "type": "token",
+            "name": "ERC20 Token",
+            "risk": "high"
+          }
+        ],
+        "attack_surface": [
+          {
+            "function": "withdraw",
+            "visibility": "public",
+            "params": "address _assetAddress",
+            "risk": "critical"
+          }
+        ],
+        "trust_boundaries": [
+          {
+            "type": "owner",
+            "trust": "full",
+            "risk": "single point of failure"
+          }
+        ],
+        "roles": [
+          {
+            "role": "OWNER (onlyOwner)",
+            "risk": "critical"
+          }
+        ],
+        "externals": [
+          {
+            "protocol": "OpenZeppelin",
+            "type": "library",
+            "risk": "supply chain"
+          }
+        ],
+        "risk_level": "HIGH"
+      },
+      "findings": {
+        "total": 4,
+        "critical": 1,
+        "high": 0,
+        "medium": 2,
+        "rule_findings": 3,
+        "deep_findings": 1,
+        "details": [
+          {
+            "source": "rule",
+            "rule_id": 14,
+            "name": "best-practice-unlocked-pragma",
+            "severity": "low",
+            "detail": "pragma 使用 ^ 而非精确版本 — 部署行为不确定"
+          },
+          {
+            "source": "rule",
+            "rule_id": 16,
+            "name": "best-practice-events-missing",
+            "severity": "medium",
+            "detail": "状态变更函数缺少事件: withdraw"
+          },
+          {
+            "source": "rule",
+            "rule_id": 49,
+            "name": "defi-fee-on-transfer",
+            "severity": "medium",
+            "detail": "转账缺before/after余额差 — fee-on-token问题"
+          },
+          {
+            "source": "deep",
+            "name": "cei_violation",
+            "severity": "critical",
+            "detail": "CEI violation in withdraw(): state changes after external call",
+            "sig_id": null
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_s": 0.0
+      }
+    }
+  ]
+}
