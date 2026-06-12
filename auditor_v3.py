@@ -14,6 +14,10 @@ def full_audit(filepath: str) -> dict:
     with open(filepath, "r", encoding="utf-8", errors="replace") as f:
         code = f.read()
 
+    # Layer 0: Threat Model (new — from Codex pipeline)
+    from threat_model import build_threat_model
+    threat = build_threat_model(code, os.path.basename(filepath))
+
     # Layer 1: 50 regex rules
     from auditor import run_all_rules
     rule_results = run_all_rules(code, os.path.basename(filepath))
@@ -51,6 +55,7 @@ def full_audit(filepath: str) -> dict:
     return {
         "file": filepath,
         "timestamp": datetime.now(TZ_CN).isoformat(),
+        "threat_model": threat,  # NEW: from Codex pipeline
         "findings": {
             "total": len(all_findings),
             "critical": critical,
