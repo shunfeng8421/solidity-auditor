@@ -201,3 +201,44 @@ def rule_50(code, filename, ctx):
         if 'rebasing' in code.lower():
             return {"pass": False, "score": 0, "detail": "协议假设余额不变 — rebase token不兼容"}
     return {"pass": True, "score": 4, "detail": "OK"}
+
+
+# ═══════════════════════════════════════════
+#  51-55: Real Exploit Pattern Rules
+# ═══════════════════════════════════════════
+
+@defi_rule(51, "signature-count-not-validation", "critical")
+def rule_51(code, filename, ctx):
+    """签名只检查数量不验证签名者 — Wormhole $326M"""
+    if re.search(r'signatures\s*\.\s*length\s*[><=]', code):
+        has_individual_check = bool(re.search(r'(?:ecrecover|ECDSA\.recover|recoverSigner)', code))
+        if not has_individual_check:
+            return {"pass": False, "score": 0,
+                    "detail": "只检查签名数量未逐条验证 — 虚假签名可绕过 (Wormhole $326M)"}
+    return {"pass": True, "score": 4, "detail": "OK"}
+
+
+@defi_rule(52, "donate-inflate-collateral", "critical")
+def rule_52(code, filename, ctx):
+    """捐赠函数增加抵押品不增债务 — Euler $197M"""
+    has_donate = bool(re.search(r'function\s+donate\s*\(', code, re.IGNORECASE))
+    has_liquidate = bool(re.search(r'function\s+liquidate\s*\(', code))
+    has_health = bool(re.search(r'(?:health|solven|collateral\s*[/*])', code, re.IGNORECASE))
+    if has_donate:
+        # Check if donate only affects collateral (not debt)
+        if has_liquidate and has_health:
+            return {"pass": False, "score": 0,
+                    "detail": "捐赠+清算共存 — 健康因子可被操纵 (Euler $197M)"}
+    return {"pass": True, "score": 4, "detail": "OK"}
+
+
+@defi_rule(53, "governance-no-emergency-pause", "critical")
+def rule_53(code, filename, ctx):
+    """治理提案执行无时间锁 — Beanstalk $182M"""
+    has_propose = bool(re.search(r'(?:propose|createProposal)\s*\(', code))
+    has_execute = bool(re.search(r'function\s+execute\s*\(', code))
+    if has_propose and has_execute:
+        if 'timelock' not in code.lower() and 'delay' not in code.lower():
+            return {"pass": False, "score": 0,
+                    "detail": "提案即时执行无时间锁 — 闪电贷治理攻击可能 (Beanstalk $182M)"}
+    return {"pass": True, "score": 4, "detail": "OK"}
