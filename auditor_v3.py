@@ -26,6 +26,16 @@ def full_audit(filepath: str) -> dict:
     from deep_audit import deep_audit as deep_scan
     deep_results = deep_scan(code)
 
+    # Layer 3: Cross-contract analysis (project-level)
+    cross_results = {"findings": []}
+    ctx_dir = ctx.get("project_dir", "")
+    if ctx_dir:
+        try:
+            from cross_contract import analyze_project
+            cross_data = analyze_project(ctx_dir)
+            cross_results = cross_data
+        except: pass
+
     # Merge all findings
     all_findings = []
     for r in rule_results:
@@ -45,6 +55,16 @@ def full_audit(filepath: str) -> dict:
             "severity": f.get("severity", "low"),
             "detail": f.get("detail", f.get("description", "")),
             "sig_id": f.get("sig_id"),
+        })
+
+    for f in cross_results.get("findings", []):
+        all_findings.append({
+            "source": "cross",
+            "name": f.get("type", "cross-contract"),
+            "severity": f.get("severity", "medium"),
+            "detail": f.get("detail", ""),
+            "file": f.get("file", ""),
+            "line": f.get("line"),
         })
 
     # Counts
