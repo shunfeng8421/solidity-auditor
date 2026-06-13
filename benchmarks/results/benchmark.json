@@ -1,0 +1,94 @@
+{
+  "benchmark": "SWC Registry + Real Exploits",
+  "total_expected": 14,
+  "detected": 14,
+  "detection_rate": 100,
+  "grade": "A+",
+  "total_findings": 22,
+  "results": [
+    {
+      "contract": "ReentrancyVulnerable",
+      "expected": "reentrancy",
+      "severity": "critical",
+      "detected": true
+    },
+    {
+      "contract": "ReentrancyVulnerable",
+      "expected": "CEI",
+      "severity": "critical",
+      "detected": true
+    },
+    {
+      "contract": "TxOriginVulnerable",
+      "expected": "tx.origin",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "SelfdestructVulnerable",
+      "expected": "selfdestruct",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "OverflowVulnerable",
+      "expected": "SafeMath",
+      "severity": "critical",
+      "detected": true
+    },
+    {
+      "contract": "WeakRandomVulnerable",
+      "expected": "random",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "UncheckedSendVulnerable",
+      "expected": "unchecked",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "OracleManipulationVulnerable",
+      "expected": "oracle",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "OracleManipulationVulnerable",
+      "expected": "spot price",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "UnprotectedInitVulnerable",
+      "expected": "initializ",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "ApproveRaceVulnerable",
+      "expected": "approve",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "OverflowVulnerable",
+      "expected": "SafeMath",
+      "severity": "critical",
+      "detected": true
+    },
+    {
+      "contract": "SwapNoSlippageVulnerable",
+      "expected": "price impact",
+      "severity": "high",
+      "detected": true
+    },
+    {
+      "contract": "SwapNoSlippageVulnerable",
+      "expected": "sandwich",
+      "severity": "high",
+      "detected": true
+    }
+  ]
+}

@@ -146,7 +146,12 @@ def rule_08(code, filename, ctx):
 
 @rule(9, "arithmetic-unsafe-casting", "high")
 def rule_09(code, filename, ctx):
-    """不安全类型转换"""
+    """不安全类型转换 + Solidity <0.8 溢出检测"""
+    # Check pre-0.8 pragma
+    m = re.search(r'pragma\s+solidity\s+[\^~]?\s*0\.([0-7])', code)
+    if m and 'SafeMath' not in code:
+        return {"pass": False, "score": 0,
+                "detail": f"pragma ^0.{m.group(1)} 无 SafeMath — 整数溢出风险 (SWC-101)"}
     downcasts = re.findall(r'(?:uint256|int256)\(.*?(?:int\d+|uint(?!256)\d+)[^)]*\)', code)
     if downcasts:
         return {"pass": False, "score": 1,
